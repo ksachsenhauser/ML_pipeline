@@ -12,6 +12,7 @@ from nltk.stem import WordNetLemmatizer
 
 nltk.download(['punkt', 'wordnet'])
 nltk.download('stopwords')
+nltk.download('punkt_tab')
 
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
