@@ -8,4 +8,4 @@ The code is based on python. Development was made under Python 3.12, which is th
 This project serves two purposes. First it is supposed to support improvements in automatic priority assignment for message streams. Additionally there is an educational purpose as this project serves to improve my data handling and machine learning experience. Hopefully, one of these purposes may also apply to you.
 
 # Files
-<bold>ETL Pipeline Preparation.ipynb</bold>
+<b>ETL Pipeline Preparation.ipynb</b>
