@@ -18,14 +18,14 @@ Jupyter notebook to read data from SQLite db, setup machine learning pipelines a
 <b>process_data.py</b><br>
 Python script containing the logic from <b>ETL Pipeline Preparation.ipynb</b>
 
-<b> categories.csv and messages.csv</b><br>
+<b>categories.csv and messages.csv</b><br>
 Raw data text files with messages and categories to be processed by process_data.py
 
 <b>DisasterResponse.db</b><br>
 SQLite database to store processed data 
 
 <b>models folder</b><br>
-<b>train_classifier.py><br>
+<b>train_classifier.py</b><br>
 Python script wit logic to setup data retrieval, ml pipeline and training for data in <b>DisasterResponse.db</b>. Stores model in a pickle file in this folder.
 
 <b>app folder</b><br>
