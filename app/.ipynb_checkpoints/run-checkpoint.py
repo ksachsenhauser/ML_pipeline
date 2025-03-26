@@ -7,7 +7,7 @@ from nltk.tokenize import word_tokenize
 
 from flask import Flask
 from flask import render_template, request, jsonify
-from plotly.graph_objs import Bar, Pie
+from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
@@ -42,14 +42,6 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-
-    df_gen = df.drop(['id','message', 'original'], axis=1).groupby(by='genre').sum()
-    med_issues_count = (df_gen['medical_help'] + df_gen['medical_products']).values
-    med_issues_labels = list(df_gen.index)
-
-    df_top_news = df_gen.loc[['news']].T.sort_values(by='news', ascending=False).head(10)
-    top_news_values = df_top_news['news'].values
-    top_news_labels = list(df_top_news.index)
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -64,36 +56,6 @@ def index():
 
             'layout': {
                 'title': 'Distribution of Message Genres',
-                'yaxis': {
-                    'title': "Count"
-                },
-                'xaxis': {
-                    'title': "Genre"
-                }
-            }
-        },
-         {
-            'data': [
-                Pie(
-                    labels=med_issues_labels,
-                    values=med_issues_count,
-                )
-            ],
-
-            'layout': {
-                'title': 'Medical issues per genre'
-            }
-        },
-        {
-            'data': [
-                Bar(
-                    x=top_news_labels,
-                    y=top_news_values
-                )
-            ],
-
-            'layout': {
-                'title': 'Top 10 genres in News',
                 'yaxis': {
                     'title': "Count"
                 },
