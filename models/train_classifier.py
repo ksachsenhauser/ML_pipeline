@@ -71,7 +71,16 @@ def build_model():
     ('clf',MultiOutputClassifier(RandomForestClassifier())),
     ])
 
-    return(pipeline)
+    # evaluate different settings for criterion and number of estimators
+    parameters = {
+        'clf__estimator__criterion' : ['gini', 'entropy'],
+        'clf__estimator__n_estimators' : [10,50]
+    }
+    
+    # setup Grid Search with parameter set
+    cv = GridSearchCV(pipeline, param_grid = parameters)
+
+    return(cv)
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
